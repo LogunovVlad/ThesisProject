@@ -34,7 +34,11 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.SingleLineComment = new System.Windows.Forms.CheckBox();
+            this.paramObf = new System.Windows.Forms.GroupBox();
+            this.MultiLineComment = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
+            this.paramObf.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -82,19 +86,51 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 235);
+            this.button1.Location = new System.Drawing.Point(690, 466);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(95, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SingleLineComment
+            // 
+            this.SingleLineComment.AutoSize = true;
+            this.SingleLineComment.Location = new System.Drawing.Point(6, 19);
+            this.SingleLineComment.Name = "SingleLineComment";
+            this.SingleLineComment.Size = new System.Drawing.Size(216, 17);
+            this.SingleLineComment.TabIndex = 3;
+            this.SingleLineComment.Text = "Удалять однострочные комментарии";
+            this.SingleLineComment.UseVisualStyleBackColor = true;
+            // 
+            // paramObf
+            // 
+            this.paramObf.Controls.Add(this.MultiLineComment);
+            this.paramObf.Controls.Add(this.SingleLineComment);
+            this.paramObf.Location = new System.Drawing.Point(12, 154);
+            this.paramObf.Name = "paramObf";
+            this.paramObf.Size = new System.Drawing.Size(291, 149);
+            this.paramObf.TabIndex = 4;
+            this.paramObf.TabStop = false;
+            this.paramObf.Text = "Выбрать параметры";
+            // 
+            // MultiLineComment
+            // 
+            this.MultiLineComment.AutoSize = true;
+            this.MultiLineComment.Location = new System.Drawing.Point(6, 42);
+            this.MultiLineComment.Name = "MultiLineComment";
+            this.MultiLineComment.Size = new System.Drawing.Size(229, 17);
+            this.MultiLineComment.TabIndex = 4;
+            this.MultiLineComment.Text = "Удалять многострочнвые комментарии";
+            this.MultiLineComment.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 472);
+            this.ClientSize = new System.Drawing.Size(797, 512);
+            this.Controls.Add(this.paramObf);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
@@ -103,6 +139,8 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.paramObf.ResumeLayout(false);
+            this.paramObf.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +154,9 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox SingleLineComment;
+        private System.Windows.Forms.GroupBox paramObf;
+        private System.Windows.Forms.CheckBox MultiLineComment;
     }
 }
 

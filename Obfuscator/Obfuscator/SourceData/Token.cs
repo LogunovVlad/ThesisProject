@@ -12,12 +12,7 @@ namespace Obfuscator.SourceData
     class Token
     {
         private String Value;
-        private String Type;
-        enum TokenTypes
-        {
-            Library, Identifier, Keyword, SingleQuotedLiteral, DoubleQuotedLiteral, NumericValue,
-            SingleLineComment, MultiLineComment, Delimiter, NotCode, Other
-        };
+        private String Type;       
         
         /// <summary>
         /// 
