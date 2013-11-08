@@ -1,0 +1,7 @@
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\bin\Debug\Obfuscator.exe
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\bin\Debug\Obfuscator.pdb
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.resources
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.Properties.Resources.resources
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.csproj.GenerateResource.Cache
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.exe
+F:\Диплом\project\ThesisProject\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.pdb
