@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceData\Obfuscator.cs" />
     <Compile Include="SourceData\TypeToken\Delimiter.cs" />
     <Compile Include="SourceData\OpenFile.cs" />
     <Compile Include="SourceData\Scanner.cs" />

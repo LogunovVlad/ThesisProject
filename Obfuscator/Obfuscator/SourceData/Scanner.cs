@@ -78,8 +78,7 @@ namespace Obfuscator.SourceData
                 TokenTypes other = TokenTypes.Other;
                 tokens.Add(new Token(result[i], Enum.Format(typeof(TokenTypes), other, "G")));
                 #endregion
-            }
-                        
+            }                        
         }
 
         /// <summary>
@@ -92,5 +91,6 @@ namespace Obfuscator.SourceData
         {            
             tokens.Add(new Token(result[i], Enum.Format(typeof(TokenTypes), lib, "G")));
         }
+        
     }
 }

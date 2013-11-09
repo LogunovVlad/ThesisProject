@@ -24,5 +24,7 @@ namespace Obfuscator.SourceData
             this.Value = Value;
             this.Type = tTypes;
         }
+
+
     }
 }

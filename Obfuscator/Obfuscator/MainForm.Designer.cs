@@ -154,9 +154,9 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox SingleLineComment;
         private System.Windows.Forms.GroupBox paramObf;
-        private System.Windows.Forms.CheckBox MultiLineComment;
+        public System.Windows.Forms.CheckBox SingleLineComment;
+        public System.Windows.Forms.CheckBox MultiLineComment;
     }
 }
 
