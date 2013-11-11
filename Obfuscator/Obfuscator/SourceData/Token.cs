@@ -12,7 +12,13 @@ namespace Obfuscator.SourceData
     class Token
     {
         private String Value;
-        private String Type;       
+        private String Type;
+
+        public String GetType
+        {
+            get { return Type; }
+            set { Type = value; }
+        }       
         
         /// <summary>
         /// 

@@ -1,0 +1,4 @@
+E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.resources
+E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.Properties.Resources.resources
+E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\AppObfuscator.csproj.GenerateResource.Cache
+E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.exe

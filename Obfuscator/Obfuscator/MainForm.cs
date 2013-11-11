@@ -29,6 +29,12 @@ namespace Obfuscator
         {
             Scanner scanner = new Scanner(opFile.Text);
             scanner.StartScan();
+            CObfuscator obf = new CObfuscator(scanner.GetTokens);
+            if (SingleLineComment.Checked)
+            {
+                obf.removeSingleLineComment();
+            }
+
         }
     }
 }

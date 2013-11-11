@@ -15,6 +15,11 @@ namespace Obfuscator.SourceData
     {
         private String sourceText;
         private List<Token> tokens;
+
+        internal List<Token> GetTokens
+        {
+            get { return tokens; }            
+        }
         enum TokenTypes
         {
             Library, Identifier, Keyword, SingleQuotedLiteral, DoubleQuotedLiteral, NumericValue,
