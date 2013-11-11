@@ -14,6 +14,11 @@ namespace Obfuscator.SourceData
         private String Value;
         private String Type;
 
+        public String GetValue
+        {
+            get { return Value; }
+        }
+    
         public String GetType
         {
             get { return Type; }
@@ -30,7 +35,6 @@ namespace Obfuscator.SourceData
             this.Value = Value;
             this.Type = tTypes;
         }
-
-
+        
     }
 }

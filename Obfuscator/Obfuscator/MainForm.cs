@@ -34,7 +34,15 @@ namespace Obfuscator
             {
                 obf.removeSingleLineComment();
             }
+            if (MultiLineComment.Checked)            
+            {
+                obf.removeMultiLineComment();
+            }
+
+
+            richTextBox2.Text += scanner.Print();
 
         }
+        
     }
 }

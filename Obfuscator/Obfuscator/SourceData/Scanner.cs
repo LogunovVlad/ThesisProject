@@ -78,6 +78,29 @@ namespace Obfuscator.SourceData
                     continue;
                 }
 
+                //многострочный комментарий
+                if(MultiLineComment.checkMultiLineComment(result[i]))
+                {
+                    TokenTypes typeMultiComment = TokenTypes.MultiLineComment;
+                    //паттерн для проверки окончания комментария
+                    string patternMulti = @"\w*(\*)/";
+                    Regex regMulti = new Regex(patternMulti);
+                    string MultiLine = null;
+                    for (int index = i; index < result.Length; index++)
+                    {
+                        MultiLine += result[index];
+                        MatchCollection matchMilti = regMulti.Matches(result[index]);
+                        if (matchMilti.Count > 0)
+                        {
+                            //проверить
+                            i += index-i;
+                            AddTokens(MultiLine, typeMultiComment);
+                            break;
+                        }
+                    }
+                    continue;
+                }
+
                 //токены не вошедшие в какие-либо классы
                 #region
                 TokenTypes other = TokenTypes.Other;
@@ -95,6 +118,21 @@ namespace Obfuscator.SourceData
         private void AddTokens(string[] result, int i, TokenTypes lib)
         {            
             tokens.Add(new Token(result[i], Enum.Format(typeof(TokenTypes), lib, "G")));
+        }
+
+        private void AddTokens(string result, TokenTypes lib)
+        {
+            tokens.Add(new Token(result, Enum.Format(typeof(TokenTypes), lib, "G")));
+        }
+
+        public string Print()
+        {
+            string res=null;
+            for (int i = 0; i < tokens.Count; i++)
+            {
+                res += tokens.ElementAt(i).GetValue;
+            }
+            return res;
         }
         
     }

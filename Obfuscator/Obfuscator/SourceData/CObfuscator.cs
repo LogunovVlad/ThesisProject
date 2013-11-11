@@ -18,9 +18,19 @@ namespace Obfuscator.SourceData
             this.tokens = tokens;
         }
 
+        /// <summary>
+        /// Удаление однострочных комментариев
+        /// </summary>
+        /// <returns></returns>
         public List<Token> removeSingleLineComment()
         {
             this.tokens.RemoveAll(x => x.GetType == "SingleLineComment");
+            return tokens;
+        }
+
+        public List<Token> removeMultiLineComment()
+        {
+            this.tokens.RemoveAll(x => x.GetType == "MultiLineComment");
             return tokens;
         }
         

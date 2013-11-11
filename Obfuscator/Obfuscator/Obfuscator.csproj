@@ -60,6 +60,7 @@
     <Compile Include="SourceData\Scanner.cs" />
     <Compile Include="SourceData\Token.cs" />
     <Compile Include="SourceData\TypeToken\Library.cs" />
+    <Compile Include="SourceData\TypeToken\MultiLineComment.cs" />
     <Compile Include="SourceData\TypeToken\Other.cs" />
     <Compile Include="SourceData\TypeToken\SingleLineComment.cs" />
     <EmbeddedResource Include="MainForm.resx">

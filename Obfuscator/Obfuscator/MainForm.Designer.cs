@@ -37,6 +37,7 @@
             this.SingleLineComment = new System.Windows.Forms.CheckBox();
             this.paramObf = new System.Windows.Forms.GroupBox();
             this.MultiLineComment = new System.Windows.Forms.CheckBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.paramObf.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             this.менюToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(797, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1183, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,16 +121,28 @@
             this.MultiLineComment.AutoSize = true;
             this.MultiLineComment.Location = new System.Drawing.Point(6, 42);
             this.MultiLineComment.Name = "MultiLineComment";
-            this.MultiLineComment.Size = new System.Drawing.Size(229, 17);
+            this.MultiLineComment.Size = new System.Drawing.Size(223, 17);
             this.MultiLineComment.TabIndex = 4;
-            this.MultiLineComment.Text = "Удалять многострочнвые комментарии";
+            this.MultiLineComment.Text = "Удалять многострочные комментарии";
             this.MultiLineComment.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox2.Location = new System.Drawing.Point(818, 27);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(353, 433);
+            this.richTextBox2.TabIndex = 5;
+            this.richTextBox2.Text = "";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 512);
+            this.ClientSize = new System.Drawing.Size(1183, 512);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.paramObf);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
@@ -157,6 +170,7 @@
         private System.Windows.Forms.GroupBox paramObf;
         public System.Windows.Forms.CheckBox SingleLineComment;
         public System.Windows.Forms.CheckBox MultiLineComment;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 
