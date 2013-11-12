@@ -48,8 +48,8 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.replaceSingle = new System.Windows.Forms.CheckBox();
+            this.replaceMulti = new System.Windows.Forms.CheckBox();
             this.accessDeleteComment = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -127,8 +127,8 @@
             // 
             // paramObf
             // 
-            this.paramObf.Controls.Add(this.checkBox2);
-            this.paramObf.Controls.Add(this.checkBox1);
+            this.paramObf.Controls.Add(this.replaceMulti);
+            this.paramObf.Controls.Add(this.replaceSingle);
             this.paramObf.Controls.Add(this.MultiLineComment);
             this.paramObf.Controls.Add(this.SingleLineComment);
             this.paramObf.Enabled = false;
@@ -258,25 +258,25 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(835, 180);
             // 
-            // checkBox1
+            // replaceSingle
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 75);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(297, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Замена однострочных комментариев на нечитаемые";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.replaceSingle.AutoSize = true;
+            this.replaceSingle.Location = new System.Drawing.Point(6, 75);
+            this.replaceSingle.Name = "replaceSingle";
+            this.replaceSingle.Size = new System.Drawing.Size(297, 17);
+            this.replaceSingle.TabIndex = 5;
+            this.replaceSingle.Text = "Замена однострочных комментариев на нечитаемые";
+            this.replaceSingle.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // replaceMulti
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 99);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(304, 17);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Замена многострочных комментариев на нечитаемые";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.replaceMulti.AutoSize = true;
+            this.replaceMulti.Location = new System.Drawing.Point(6, 99);
+            this.replaceMulti.Name = "replaceMulti";
+            this.replaceMulti.Size = new System.Drawing.Size(304, 17);
+            this.replaceMulti.TabIndex = 6;
+            this.replaceMulti.Text = "Замена многострочных комментариев на нечитаемые";
+            this.replaceMulti.UseVisualStyleBackColor = true;
             // 
             // accessDeleteComment
             // 
@@ -385,8 +385,8 @@
         private System.Windows.Forms.TabPage tabRename;
         private System.Windows.Forms.TabPage tabComment;
         private System.Windows.Forms.TabPage tabWiew;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox replaceMulti;
+        private System.Windows.Forms.CheckBox replaceSingle;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;

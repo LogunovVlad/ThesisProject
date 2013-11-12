@@ -38,7 +38,17 @@ namespace Obfuscator
             {
                 obf.removeMultiLineComment();
             }
-
+            if (replaceSingle.Checked)
+            {
+                //замена не нечитаемые однострочных комментариев
+                obf.replacementForUnreadableSingle();
+            }
+            if (replaceMulti.Checked)
+            {
+                //замена не нечитаемые многострочных комментариев
+                obf.replacementForUnreadableMulti();
+            }
+            
             richTextBox2.Clear();
             //вывод обфусцированного кода
             richTextBox2.Text += scanner.Print();

@@ -18,11 +18,15 @@ namespace Obfuscator.SourceData
         {
             get { return Value; }
         }
+
+        public String SetValue
+        {
+            set { Value = value; }
+        }
     
         public String GetType
         {
-            get { return Type; }
-            set { Type = value; }
+            get { return Type; }            
         }       
         
         /// <summary>
