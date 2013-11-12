@@ -19,7 +19,7 @@ namespace Obfuscator.SourceData.TypeToken
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static bool? checkSingleLineComment(String text)
+        public static bool? checkSingleLineComment(string text)
         {
             bool? flagCheck=false;
             //поиск будет производится с начала строки и искать строго одно вхождение "//".
@@ -36,6 +36,13 @@ namespace Obfuscator.SourceData.TypeToken
                 MatchCollection delimMatch = regDelim.Matches(text);                
                 if (delimMatch.Count > 0)
                     flagCheck = null;             
+                //если (//) находится в двойных кавычках (строковый литерал)
+                delimPattern = ("(\"(.*)(//)(.*)\")");
+                regDelim = new Regex(delimPattern);
+                delimMatch = regDelim.Matches(text);
+                //тогда это не комментарий
+                if (delimMatch.Count > 0)
+                    flagCheck = false;             
             }
             return flagCheck;
         }

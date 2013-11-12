@@ -12,3 +12,4 @@ E:\ProjectGitHub\Obfuscator\Obfuscator\bin\Debug\Obfuscator.pdb
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.resources
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.Properties.Resources.resources
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.csproj.GenerateResource.Cache
+E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.csprojResolveAssemblyReference.cache

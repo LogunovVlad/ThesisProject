@@ -39,9 +39,24 @@ namespace Obfuscator
                 obf.removeMultiLineComment();
             }
 
-
+            richTextBox2.Clear();
+            //вывод обфусцированного кода
             richTextBox2.Text += scanner.Print();
 
+        }
+
+
+        /// <summary>
+        /// Событие, разрешающее настраивать удаление комментариев
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void accessDeleteComment_EnabledChanged(object sender, EventArgs e)
+        {
+            if (accessDeleteComment.Checked)            
+                paramObf.Enabled = true;            
+            else
+                paramObf.Enabled = false;
         }
         
     }

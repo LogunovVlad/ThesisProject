@@ -53,7 +53,7 @@ namespace Obfuscator.SourceData
                     TokenTypes lib = TokenTypes.Library;
                     AddTokens(result, i, lib);              
                     continue;
-                }
+                }              
                 
                 if (SingleLineComment.checkSingleLineComment(result[i])==true)
                 {
@@ -74,7 +74,7 @@ namespace Obfuscator.SourceData
                     //добавляем комментарий, как токен "Однострочный комментарий"
                     tokens.Add(new Token(massSplit[1] + massSplit[2], Enum.Format(typeof(TokenTypes), typeComment, "G")));
                     //добавляем текст, который стоит перед комментарием, как токен "Other"
-                    AddTokens(massSplit,0,typeOther);                    
+                    AddTokens(massSplit[0]+"\r",typeOther);                    
                     continue;
                 }
 
@@ -98,6 +98,14 @@ namespace Obfuscator.SourceData
                             break;
                         }
                     }
+                    continue;
+                }
+
+                //если литерал в двойных кавычках
+                if (DoubleQuotedLiteral.checkDoubleQuotedLiteral(result[i]))
+                {
+                    TokenTypes QLiteral = TokenTypes.DoubleQuotedLiteral;
+                    AddTokens(result[i], QLiteral);
                     continue;
                 }
 
