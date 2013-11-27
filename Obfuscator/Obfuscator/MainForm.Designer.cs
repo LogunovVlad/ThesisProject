@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SingleLineComment = new System.Windows.Forms.CheckBox();
             this.paramObf = new System.Windows.Forms.GroupBox();
+            this.replaceMulti = new System.Windows.Forms.CheckBox();
+            this.replaceSingle = new System.Windows.Forms.CheckBox();
             this.MultiLineComment = new System.Windows.Forms.CheckBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -43,21 +47,39 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabRename = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GridVariable = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericLengthVar = new System.Windows.Forms.NumericUpDown();
+            this.checkRenameVariable = new System.Windows.Forms.CheckBox();
+            this.checkEmptyLine = new System.Windows.Forms.CheckBox();
+            this.checkReplace = new System.Windows.Forms.CheckBox();
+            this.checkTrueRename = new System.Windows.Forms.CheckBox();
+            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ы = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.tabComment = new System.Windows.Forms.TabPage();
-            this.tabWiew = new System.Windows.Forms.TabPage();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.replaceSingle = new System.Windows.Forms.CheckBox();
-            this.replaceMulti = new System.Windows.Forms.CheckBox();
             this.accessDeleteComment = new System.Windows.Forms.CheckBox();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.tabWiew = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.buttonPrintMappin = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.paramObf.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabRename.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridVariable)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLengthVar)).BeginInit();
             this.tabComment.SuspendLayout();
             this.tabWiew.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +161,26 @@
             this.paramObf.TabStop = false;
             this.paramObf.Text = "Выбрать параметры";
             // 
+            // replaceMulti
+            // 
+            this.replaceMulti.AutoSize = true;
+            this.replaceMulti.Location = new System.Drawing.Point(6, 99);
+            this.replaceMulti.Name = "replaceMulti";
+            this.replaceMulti.Size = new System.Drawing.Size(304, 17);
+            this.replaceMulti.TabIndex = 6;
+            this.replaceMulti.Text = "Замена многострочных комментариев на нечитаемые";
+            this.replaceMulti.UseVisualStyleBackColor = true;
+            // 
+            // replaceSingle
+            // 
+            this.replaceSingle.AutoSize = true;
+            this.replaceSingle.Location = new System.Drawing.Point(6, 75);
+            this.replaceSingle.Name = "replaceSingle";
+            this.replaceSingle.Size = new System.Drawing.Size(297, 17);
+            this.replaceSingle.TabIndex = 5;
+            this.replaceSingle.Text = "Замена однострочных комментариев на нечитаемые";
+            this.replaceSingle.UseVisualStyleBackColor = true;
+            // 
             // MultiLineComment
             // 
             this.MultiLineComment.AutoSize = true;
@@ -168,7 +210,7 @@
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape2,
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(1197, 566);
+            this.shapeContainer1.Size = new System.Drawing.Size(1197, 585);
             this.shapeContainer1.TabIndex = 6;
             this.shapeContainer1.TabStop = false;
             // 
@@ -202,12 +244,140 @@
             // tabRename
             // 
             this.tabRename.BackColor = System.Drawing.SystemColors.Control;
+            this.tabRename.Controls.Add(this.buttonPrintMappin);
+            this.tabRename.Controls.Add(this.groupBox2);
+            this.tabRename.Controls.Add(this.groupBox1);
+            this.tabRename.Controls.Add(this.checkTrueRename);
+            this.tabRename.Controls.Add(this.shapeContainer3);
             this.tabRename.Location = new System.Drawing.Point(4, 22);
             this.tabRename.Name = "tabRename";
             this.tabRename.Padding = new System.Windows.Forms.Padding(3);
             this.tabRename.Size = new System.Drawing.Size(859, 402);
             this.tabRename.TabIndex = 0;
             this.tabRename.Text = "Переименование";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.GridVariable);
+            this.groupBox2.Location = new System.Drawing.Point(373, 129);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(447, 216);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Таблица переименований";
+            // 
+            // GridVariable
+            // 
+            this.GridVariable.AllowUserToDeleteRows = false;
+            this.GridVariable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridVariable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.GridVariable.Location = new System.Drawing.Point(6, 19);
+            this.GridVariable.Name = "GridVariable";
+            this.GridVariable.ReadOnly = true;
+            this.GridVariable.RowHeadersVisible = false;
+            this.GridVariable.Size = new System.Drawing.Size(427, 191);
+            this.GridVariable.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.numericLengthVar);
+            this.groupBox1.Controls.Add(this.checkRenameVariable);
+            this.groupBox1.Controls.Add(this.checkEmptyLine);
+            this.groupBox1.Controls.Add(this.checkReplace);
+            this.groupBox1.Location = new System.Drawing.Point(39, 129);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(282, 216);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Выберите параметры";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Длина переменных";
+            // 
+            // numericLengthVar
+            // 
+            this.numericLengthVar.Location = new System.Drawing.Point(6, 97);
+            this.numericLengthVar.Name = "numericLengthVar";
+            this.numericLengthVar.Size = new System.Drawing.Size(120, 20);
+            this.numericLengthVar.TabIndex = 3;
+            this.numericLengthVar.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // checkRenameVariable
+            // 
+            this.checkRenameVariable.AutoSize = true;
+            this.checkRenameVariable.Location = new System.Drawing.Point(6, 56);
+            this.checkRenameVariable.Name = "checkRenameVariable";
+            this.checkRenameVariable.Size = new System.Drawing.Size(180, 17);
+            this.checkRenameVariable.TabIndex = 2;
+            this.checkRenameVariable.Text = "Переименование переменных";
+            this.checkRenameVariable.UseVisualStyleBackColor = true;
+            // 
+            // checkEmptyLine
+            // 
+            this.checkEmptyLine.AutoSize = true;
+            this.checkEmptyLine.Location = new System.Drawing.Point(6, 134);
+            this.checkEmptyLine.Name = "checkEmptyLine";
+            this.checkEmptyLine.Size = new System.Drawing.Size(151, 17);
+            this.checkEmptyLine.TabIndex = 1;
+            this.checkEmptyLine.Text = "Убрать лишние пробелы\r\n";
+            this.checkEmptyLine.UseVisualStyleBackColor = true;
+            // 
+            // checkReplace
+            // 
+            this.checkReplace.AutoSize = true;
+            this.checkReplace.Location = new System.Drawing.Point(6, 33);
+            this.checkReplace.Name = "checkReplace";
+            this.checkReplace.Size = new System.Drawing.Size(114, 17);
+            this.checkReplace.TabIndex = 0;
+            this.checkReplace.Text = "Замена констант";
+            this.checkReplace.UseVisualStyleBackColor = true;
+            // 
+            // checkTrueRename
+            // 
+            this.checkTrueRename.AutoSize = true;
+            this.checkTrueRename.Location = new System.Drawing.Point(39, 47);
+            this.checkTrueRename.Name = "checkTrueRename";
+            this.checkTrueRename.Size = new System.Drawing.Size(171, 17);
+            this.checkTrueRename.TabIndex = 1;
+            this.checkTrueRename.Text = "Разрешить переименование";
+            this.checkTrueRename.UseVisualStyleBackColor = true;
+            // 
+            // shapeContainer3
+            // 
+            this.shapeContainer3.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer3.Name = "shapeContainer3";
+            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ы,
+            this.rectangleShape3});
+            this.shapeContainer3.Size = new System.Drawing.Size(853, 396);
+            this.shapeContainer3.TabIndex = 0;
+            this.shapeContainer3.TabStop = false;
+            // 
+            // ы
+            // 
+            this.ы.Location = new System.Drawing.Point(10, 109);
+            this.ы.Name = "ы";
+            this.ы.Size = new System.Drawing.Size(835, 265);
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.Location = new System.Drawing.Point(9, 10);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(836, 85);
             // 
             // tabComment
             // 
@@ -222,17 +392,16 @@
             this.tabComment.TabIndex = 1;
             this.tabComment.Text = "Комментарии";
             // 
-            // tabWiew
+            // accessDeleteComment
             // 
-            this.tabWiew.BackColor = System.Drawing.SystemColors.Control;
-            this.tabWiew.Controls.Add(this.richTextBox1);
-            this.tabWiew.Controls.Add(this.richTextBox2);
-            this.tabWiew.Location = new System.Drawing.Point(4, 22);
-            this.tabWiew.Name = "tabWiew";
-            this.tabWiew.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWiew.Size = new System.Drawing.Size(859, 402);
-            this.tabWiew.TabIndex = 2;
-            this.tabWiew.Text = "Предварительный просмотр";
+            this.accessDeleteComment.AutoSize = true;
+            this.accessDeleteComment.Location = new System.Drawing.Point(39, 47);
+            this.accessDeleteComment.Name = "accessDeleteComment";
+            this.accessDeleteComment.Size = new System.Drawing.Size(210, 17);
+            this.accessDeleteComment.TabIndex = 6;
+            this.accessDeleteComment.Text = "Разрешить удаление комментариев";
+            this.accessDeleteComment.UseVisualStyleBackColor = true;
+            this.accessDeleteComment.CheckedChanged += new System.EventHandler(this.accessDeleteComment_EnabledChanged);
             // 
             // shapeContainer2
             // 
@@ -246,48 +415,29 @@
             this.shapeContainer2.TabIndex = 5;
             this.shapeContainer2.TabStop = false;
             // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.Location = new System.Drawing.Point(9, 10);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(836, 85);
-            // 
             // rectangleShape2
             // 
             this.rectangleShape2.Location = new System.Drawing.Point(10, 109);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(835, 180);
             // 
-            // replaceSingle
+            // rectangleShape1
             // 
-            this.replaceSingle.AutoSize = true;
-            this.replaceSingle.Location = new System.Drawing.Point(6, 75);
-            this.replaceSingle.Name = "replaceSingle";
-            this.replaceSingle.Size = new System.Drawing.Size(297, 17);
-            this.replaceSingle.TabIndex = 5;
-            this.replaceSingle.Text = "Замена однострочных комментариев на нечитаемые";
-            this.replaceSingle.UseVisualStyleBackColor = true;
+            this.rectangleShape1.Location = new System.Drawing.Point(9, 10);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(836, 85);
             // 
-            // replaceMulti
+            // tabWiew
             // 
-            this.replaceMulti.AutoSize = true;
-            this.replaceMulti.Location = new System.Drawing.Point(6, 99);
-            this.replaceMulti.Name = "replaceMulti";
-            this.replaceMulti.Size = new System.Drawing.Size(304, 17);
-            this.replaceMulti.TabIndex = 6;
-            this.replaceMulti.Text = "Замена многострочных комментариев на нечитаемые";
-            this.replaceMulti.UseVisualStyleBackColor = true;
-            // 
-            // accessDeleteComment
-            // 
-            this.accessDeleteComment.AutoSize = true;
-            this.accessDeleteComment.Location = new System.Drawing.Point(39, 47);
-            this.accessDeleteComment.Name = "accessDeleteComment";
-            this.accessDeleteComment.Size = new System.Drawing.Size(210, 17);
-            this.accessDeleteComment.TabIndex = 6;
-            this.accessDeleteComment.Text = "Разрешить удаление комментариев";
-            this.accessDeleteComment.UseVisualStyleBackColor = true;
-            this.accessDeleteComment.CheckedChanged += new System.EventHandler(this.accessDeleteComment_EnabledChanged);
+            this.tabWiew.BackColor = System.Drawing.SystemColors.Control;
+            this.tabWiew.Controls.Add(this.richTextBox1);
+            this.tabWiew.Controls.Add(this.richTextBox2);
+            this.tabWiew.Location = new System.Drawing.Point(4, 22);
+            this.tabWiew.Name = "tabWiew";
+            this.tabWiew.Padding = new System.Windows.Forms.Padding(3);
+            this.tabWiew.Size = new System.Drawing.Size(859, 402);
+            this.tabWiew.TabIndex = 2;
+            this.tabWiew.Text = "Предварительный просмотр";
             // 
             // button2
             // 
@@ -300,6 +450,7 @@
             this.button2.Text = "Открыть";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.OpenFile);
             // 
             // button3
             // 
@@ -337,11 +488,40 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // buttonPrintMappin
+            // 
+            this.buttonPrintMappin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrintMappin.Location = new System.Drawing.Point(379, 352);
+            this.buttonPrintMappin.Name = "buttonPrintMappin";
+            this.buttonPrintMappin.Size = new System.Drawing.Size(213, 23);
+            this.buttonPrintMappin.TabIndex = 5;
+            this.buttonPrintMappin.Text = "Вывести таблицу переименований";
+            this.buttonPrintMappin.UseVisualStyleBackColor = true;
+            this.buttonPrintMappin.Click += new System.EventHandler(this.buttonPrintMappin_Click);
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Имя до переименования";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 210;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "Имя после переименования";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 210;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 566);
+            this.ClientSize = new System.Drawing.Size(1197, 585);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -358,6 +538,13 @@
             this.paramObf.ResumeLayout(false);
             this.paramObf.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabRename.ResumeLayout(false);
+            this.tabRename.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridVariable)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLengthVar)).EndInit();
             this.tabComment.ResumeLayout(false);
             this.tabComment.PerformLayout();
             this.tabWiew.ResumeLayout(false);
@@ -395,6 +582,21 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox checkTrueRename;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape ы;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkEmptyLine;
+        private System.Windows.Forms.CheckBox checkReplace;
+        private System.Windows.Forms.CheckBox checkRenameVariable;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericLengthVar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView GridVariable;
+        private System.Windows.Forms.Button buttonPrintMappin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
 

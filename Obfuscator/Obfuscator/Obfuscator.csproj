@@ -68,6 +68,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SourceData\CObfuscator.cs" />
+    <Compile Include="SourceData\Printer.cs" />
+    <Compile Include="SourceData\Table\TableMapping\RenameMassive.cs" />
+    <Compile Include="SourceData\Table\TableMapping\RenameVariable.cs" />
+    <Compile Include="SourceData\Table\TableMapping\TableMapping.cs" />
     <Compile Include="SourceData\TypeToken\Delimiter.cs" />
     <Compile Include="SourceData\OpenFile.cs" />
     <Compile Include="SourceData\Scanner.cs" />
@@ -75,6 +79,7 @@
     <Compile Include="SourceData\TypeToken\DoubleQuotedLiteral.cs" />
     <Compile Include="SourceData\TypeToken\Library.cs" />
     <Compile Include="SourceData\TypeToken\MultiLineComment.cs" />
+    <Compile Include="SourceData\TypeToken\Number\KeyWordChecker.cs" />
     <Compile Include="SourceData\TypeToken\Other.cs" />
     <Compile Include="SourceData\TypeToken\SingleLineComment.cs" />
     <EmbeddedResource Include="MainForm.resx">

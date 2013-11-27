@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Obfuscator.SourceData.Table.TableMapping;
 
 namespace Obfuscator.SourceData
 {
@@ -13,10 +14,12 @@ namespace Obfuscator.SourceData
     class CObfuscator
     {
         private List<Token> tokens = new List<Token>();
+        private TableMapping table;
 
-        public CObfuscator(List<Token> tokens)
+        public CObfuscator(List<Token> tokens, TableMapping table)
         {
             this.tokens = tokens;
+            this.table = table;
         }
 
         /// <summary>
@@ -70,6 +73,39 @@ namespace Obfuscator.SourceData
                     tokens.ElementAt(i).SetValue = str;
                 }
             }
+            return tokens;
+        }
+
+        /// <summary>
+        /// Метод для удаления лишних пробелов
+        /// </summary>
+        /// <returns></returns>
+        public List<Token> removeEmptyLine()
+        {
+            this.tokens.RemoveAll(x => x.GetType == "EmptyLine");
+            return tokens;
+        }
+
+        /// <summary>
+        /// Метод, для замены константных имен констант фактическими данными
+        /// </summary>
+        /// <returns></returns>       
+        public List<Token> replaceConstVariable()
+        {
+            RenameVariable constObj = new RenameVariable(tokens, table);
+            constObj.ScannerConst();
+            return tokens;
+        }
+
+        /// <summary>
+        /// Метод замены переменных
+        /// </summary>
+        /// <param name="countLitVariable">Количество букв в новой переменной</param>
+        /// <returns></returns>
+        public List<Token> renameVariable(int countLitVariable)
+        {
+            RenameVariable renameObj = new RenameVariable(tokens, this.table);            
+            renameObj.ScannerVariable(Token.dataType, countLitVariable);
             return tokens;
         }
 

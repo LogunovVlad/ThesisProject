@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Obfuscator.SourceData.TypeToken;
+using Obfuscator.SourceData.TypeToken.Number;
+using Obfuscator.SourceData.Table.TableMapping;
 
 namespace Obfuscator.SourceData
 {
@@ -14,7 +16,7 @@ namespace Obfuscator.SourceData
     class Scanner
     {
         private String sourceText;
-        private List<Token> tokens;
+        private List<Token> tokens;       
 
         internal List<Token> GetTokens
         {
@@ -23,8 +25,10 @@ namespace Obfuscator.SourceData
         enum TokenTypes
         {
             Library, Identifier, Keyword, SingleQuotedLiteral, DoubleQuotedLiteral, NumericValue,
-            SingleLineComment, MultiLineComment, Delimiter, NotCode, Other
+            SingleLineComment, MultiLineComment, Delimiter, NotCode, Const, Other, EmptyLine
         };
+
+        
 
         /// <summary>
         /// Конструктор
@@ -47,7 +51,16 @@ namespace Obfuscator.SourceData
             string pattern = "\n";
             string[] result = Regex.Split(SourceText, pattern);
             for(int i=0; i<result.Length; i++)
-            {               
+            {
+                if(Other.checkTabul(result[i]))                
+                {
+                    //string patternSplit = "\t";
+                    //Regex regSplit = new Regex(patternSplit);
+                    //разбивает строку только на 2 подстроки(после символа "\t")
+                    string massSplit = result[i].Replace("\t", "");// regSplit.Replace(result[i], "\\t"); //Split(result[i],2);
+                    result[i] = massSplit;
+                }                
+
                 if (Library.checkLibrary(result[i]))
                 {
                     TokenTypes lib = TokenTypes.Library;
@@ -74,7 +87,7 @@ namespace Obfuscator.SourceData
                     //добавляем комментарий, как токен "Однострочный комментарий"
                     tokens.Add(new Token(massSplit[1] + massSplit[2], Enum.Format(typeof(TokenTypes), typeComment, "G")));
                     //добавляем текст, который стоит перед комментарием, как токен "Other"
-                    AddTokens(massSplit[0]+"\r",typeOther);                    
+                    AddTokens(massSplit[0]+"\r",typeOther);
                     continue;
                 }
 
@@ -101,11 +114,55 @@ namespace Obfuscator.SourceData
                     continue;
                 }
 
+                //проверка на константу
+                if (KeyWordChecker.checkConstant(result[i]))
+                {
+                    TokenTypes constI = TokenTypes.Const;
+                    AddTokens(result[i], constI);
+                    continue;
+                }
+
+                //проверка на тип данных
+                string resType = KeyWordChecker.checkDataType(result[i], Token.dataType);
+                if (resType != null)
+                {
+                    //вызов метода!!!!!!!!!!!!!!!!!!!!!!!!
+                    string patternComma = Regex.Escape(",");
+                    Regex regComma = new Regex(patternComma);
+                    MatchCollection matchComma = regComma.Matches(result[i]);
+                    if (matchComma.Count > 0)
+                    {
+                        string[] Variable = regComma.Split(result[i]);
+                        for (int index = 0; index < Variable.Length; index++)
+                        {
+                            AddTokens(Variable[index], resType);
+                            //для последнего символа не добавлять запятую
+                            if (index != Variable.Length - 1)
+                            {
+                                AddTokens(",", " Other");
+                            }
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        AddTokens(result[i], resType);
+                        continue;
+                    }
+                }
+
                 //если литерал в двойных кавычках
                 if (DoubleQuotedLiteral.checkDoubleQuotedLiteral(result[i]))
                 {
                     TokenTypes QLiteral = TokenTypes.DoubleQuotedLiteral;
                     AddTokens(result[i], QLiteral);
+                    continue;
+                }              
+              
+                //если на входе пустая строка
+                if (Other.emptyLine(result[i]))
+                {
+                    AddTokens(result[i], TokenTypes.EmptyLine);
                     continue;
                 }
 
@@ -113,7 +170,7 @@ namespace Obfuscator.SourceData
                 #region
                 TokenTypes other = TokenTypes.Other;
                 tokens.Add(new Token(result[i], Enum.Format(typeof(TokenTypes), other, "G")));
-                #endregion
+                #endregion                
             }                        
         }
 
@@ -127,21 +184,16 @@ namespace Obfuscator.SourceData
         {            
             tokens.Add(new Token(result[i], Enum.Format(typeof(TokenTypes), lib, "G")));
         }
-
+        
         private void AddTokens(string result, TokenTypes lib)
         {
             tokens.Add(new Token(result, Enum.Format(typeof(TokenTypes), lib, "G")));
         }
 
-        public string Print()
+        private void AddTokens(string result, string type)
         {
-            string res=null;
-            for (int i = 0; i < tokens.Count; i++)
-            {
-                res += tokens.ElementAt(i).GetValue;
-            }
-            return res;
-        }
+            tokens.Add(new Token(result, type));
+        }       
         
     }
 }

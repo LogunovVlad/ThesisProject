@@ -13,7 +13,10 @@ namespace Obfuscator.SourceData
     {
         private String Value;
         private String Type;
-
+        private String tStruct;
+        public static string[] dataType = { "int", "double", "float", "char", "long", "bool", "string" };
+        public static string[] typeStruct = { "struct", "function" };
+                                                                      
         public String GetValue
         {
             get { return Value; }
@@ -33,11 +36,13 @@ namespace Obfuscator.SourceData
         /// 
         /// </summary>
         /// <param name="Value">Значение токена</param>
-        /// <param name="tTypes">Тип токена</param>
-        public Token(String Value, String tTypes)
+        /// <param name="tTypes">Тип токена (char, int, double и т.д.)</param>
+        /// <param name="tStruct">Тип токена (массив, структура, переменная, метод и т.д.)</param>
+        public Token(String Value, String tTypes, String tStruct=null)
         {
             this.Value = Value;
             this.Type = tTypes;
+            this.tStruct = tStruct;
         }
         
     }
