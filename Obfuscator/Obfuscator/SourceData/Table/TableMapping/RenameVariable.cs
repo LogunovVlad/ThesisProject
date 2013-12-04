@@ -9,16 +9,15 @@ namespace Obfuscator.SourceData.Table.TableMapping
     class RenameVariable
     {
         List<Token> token = new List<Token>();
-        private TableMapping table;       
-        
+        private TableMapping table;
+        Random rand = new Random();      
         private string sourceLit;
         private string sourceValue;
         private string patternEquals;
         private string patternSpace;
         private string patternDot;
         private string patternMassive;
-        private string patternStar;
-        Random rand = new Random();
+        private string patternStar;        
         /// <summary>
         /// Класс для замены константных переменных значениями
         /// </summary>        
@@ -33,7 +32,7 @@ namespace Obfuscator.SourceData.Table.TableMapping
         /// </summary>
         /// <param name="inputText"></param>
         private void ReplaceConst(string inputText)
-        {                                
+        {
             patternEquals = "=";
             patternSpace = " ";
             patternDot = ";";
@@ -72,7 +71,7 @@ namespace Obfuscator.SourceData.Table.TableMapping
                     string s = Regex.Replace(matchSearch, sourceLit, replace);
                     token.ElementAt(i).SetValue = s;
                 }
-            }            
+            }
         }
 
         private void ReplaceVariable(string inputText, int countLiter)
@@ -136,12 +135,21 @@ namespace Obfuscator.SourceData.Table.TableMapping
                     string[] massiveLitStar = regStar.Split(sourceLit);
                     sourceLit = massiveLitStar[1];
                 }
-            }                      
-            
+            }
+
             string patternSearch = "(\\b|\\s?\\W+\\s?)" + sourceLit + "(\\b|\\W+)";
-            string randReplace = NewNameVariable(countLiter);
-            string replace = "$1"+randReplace;
-            table.addTableMapping(sourceLit, randReplace);
+            string randReplace = null;
+            string replace=null;
+            //вычисляем количество возможных значений
+            /*int factorial = Factorial(countLiter);*/
+            do
+            {
+                randReplace = GenerateVariable.NewNameVariable(countLiter, rand);
+            }
+            while (SearchEqualVariable(randReplace));
+            
+            replace = "$1" + randReplace;
+            table.addTableMapping(sourceLit, randReplace);            
             //начинаем переименовывание
             Regex regSearch = new Regex(patternSearch);
             //поиск и замена
@@ -155,24 +163,26 @@ namespace Obfuscator.SourceData.Table.TableMapping
                     string s = Regex.Replace(matchSearch, patternSearch, replace);
                     token.ElementAt(i).SetValue = s;
                 }
-            }         
-        }
+            }
+        }       
 
         /// <summary>
-        /// Генерация новых имен переменных случайным образом
+        /// Проверка на одинаковые имена переменных. Если такая переменная уже есть в таблице
+        /// соответствий, генерируем новую 
         /// </summary>
-        /// <param name="countLiter">Желаемое количество букв в новой переменной</param>
+        /// <param name="randReplace">Сгенерированная переменная</param>       
         /// <returns></returns>
-        private string NewNameVariable(int countLiter)
+        private bool SearchEqualVariable(string randReplace)
         {
-            string resutl = null;
-            string[] massivLit = { "l", "i", "I" };
-            for (int i = 0; i < countLiter; i++)
+            bool flagCheck = false;                     
+            for (int i = 0; i < table.GetTableNaming.Count; i++)
             {
-                int indexVar = rand.Next(0, 3);
-                resutl += massivLit[indexVar];
+                if (randReplace.Equals(table.GetTableNaming.ElementAt(i).Value))
+                {
+                    flagCheck = true;
+                }
             }
-            return resutl;
+            return flagCheck;
         }
 
         /// <summary>
@@ -207,11 +217,12 @@ namespace Obfuscator.SourceData.Table.TableMapping
                 {
                     if (token.ElementAt(i).GetType == dataType[j])
                     {
-                        ReplaceVariable(token.ElementAt(i).GetValue,countLiter);
+                        ReplaceVariable(token.ElementAt(i).GetValue, countLiter);
                     }
                 }
             }
             return token;
         }
+        
     }
 }

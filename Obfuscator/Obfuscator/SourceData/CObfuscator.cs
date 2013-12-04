@@ -109,6 +109,43 @@ namespace Obfuscator.SourceData
             return tokens;
         }
 
+        /// <summary>
+        /// Метод переименования методов
+        /// </summary>
+        /// <param name="countLitMethod"></param>
+        /// <returns></returns>
+        public List<Token> renameMethod(int countLitMethod)
+        {
+            RenameVariable renameMethod = new RenameVariable(tokens, this.table);
+            string[] temp={"Function"};
+            renameMethod.ScannerVariable(temp, countLitMethod);
+            return tokens;
+        }
+
+        //рабта с циклами
+        #region
+        /// <summary>
+        /// Проверка возможности расширения условий циклов
+        /// </summary>
+        /// <returns></returns>
+        public bool extendChanceConditions()
+        {            
+            ExpansionCyclesConditions expObj = new ExpansionCyclesConditions(tokens);
+            return expObj.CheckChanceCondition();
+        }
+
+        /// <summary>
+        /// Расширение условий циклов
+        /// </summary>
+        /// <returns></returns>
+        public List<Token> extendConditions()
+        {
+            ExpansionCyclesConditions expObj = new ExpansionCyclesConditions(tokens);
+            expObj.StartInsertConditions();
+            return tokens;
+        }
+        #endregion
+
         //XOR для комментариев
         #region 
         /// <summary>

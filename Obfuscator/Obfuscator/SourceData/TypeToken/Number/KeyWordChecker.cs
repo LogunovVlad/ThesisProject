@@ -29,7 +29,36 @@ namespace Obfuscator.SourceData.TypeToken.Number
                 checkFlag = true;
             }
             return checkFlag;
-        }             
+        }
+
+        /// <summary>
+        /// Проверка main
+        /// </summary>
+        /// <param name="inputText"></param>
+        /// <returns></returns>
+        public static bool checkMain(string inputText)
+        {
+            bool checkFlag = false;
+            string patternMain = @"main" + Regex.Escape("(") + Regex.Escape(")");
+            MatchCollection matchMain = NewRegex(inputText, patternMain);
+            if (matchMain.Count > 0)
+            {
+                checkFlag = true;
+            }
+            return checkFlag;
+        }
+
+        public static bool checkFor(string inputText)
+        {
+            bool checkFlag = false;
+            string patternFor = @"for\s*" + Regex.Escape("(")+"(.*)" + Regex.Escape(")");
+            MatchCollection matchFor = NewRegex(inputText, patternFor);
+            if (matchFor.Count > 0)
+            {
+                checkFlag = true;
+            }
+            return checkFlag;
+        }
 
         /// <summary>
         /// Метод определяющий тип данных

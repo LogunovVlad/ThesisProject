@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +47,14 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabRename = new System.Windows.Forms.TabPage();
+            this.checkCycles = new System.Windows.Forms.CheckBox();
+            this.buttonPrintMappin = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.GridVariable = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkRenameMethod = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.numericLengthVar = new System.Windows.Forms.NumericUpDown();
             this.checkRenameVariable = new System.Windows.Forms.CheckBox();
@@ -69,9 +74,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.buttonPrintMappin = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.таблицаСоответствийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.paramObf.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -87,7 +95,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.менюToolStripMenuItem});
+            this.менюToolStripMenuItem,
+            this.таблицаСоответствийToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1197, 24);
@@ -98,6 +107,7 @@
             // 
             this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьФайлToolStripMenuItem,
+            this.сохранитьToolStripMenuItem1,
             this.выходToolStripMenuItem});
             this.менюToolStripMenuItem.Name = "менюToolStripMenuItem";
             this.менюToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
@@ -120,10 +130,10 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(50, 31);
+            this.richTextBox1.Location = new System.Drawing.Point(50, 46);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(370, 356);
+            this.richTextBox1.Size = new System.Drawing.Size(370, 341);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -195,10 +205,10 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox2.Location = new System.Drawing.Point(458, 31);
+            this.richTextBox2.Location = new System.Drawing.Point(458, 46);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(377, 356);
+            this.richTextBox2.Size = new System.Drawing.Size(377, 341);
             this.richTextBox2.TabIndex = 5;
             this.richTextBox2.Text = "";
             // 
@@ -244,6 +254,7 @@
             // tabRename
             // 
             this.tabRename.BackColor = System.Drawing.SystemColors.Control;
+            this.tabRename.Controls.Add(this.checkCycles);
             this.tabRename.Controls.Add(this.buttonPrintMappin);
             this.tabRename.Controls.Add(this.groupBox2);
             this.tabRename.Controls.Add(this.groupBox1);
@@ -255,6 +266,27 @@
             this.tabRename.Size = new System.Drawing.Size(859, 402);
             this.tabRename.TabIndex = 0;
             this.tabRename.Text = "Переименование";
+            // 
+            // checkCycles
+            // 
+            this.checkCycles.AutoSize = true;
+            this.checkCycles.Location = new System.Drawing.Point(39, 70);
+            this.checkCycles.Name = "checkCycles";
+            this.checkCycles.Size = new System.Drawing.Size(224, 17);
+            this.checkCycles.TabIndex = 6;
+            this.checkCycles.Text = "Разрешить расширение условий циков";
+            this.checkCycles.UseVisualStyleBackColor = true;
+            // 
+            // buttonPrintMappin
+            // 
+            this.buttonPrintMappin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrintMappin.Location = new System.Drawing.Point(379, 352);
+            this.buttonPrintMappin.Name = "buttonPrintMappin";
+            this.buttonPrintMappin.Size = new System.Drawing.Size(213, 23);
+            this.buttonPrintMappin.TabIndex = 5;
+            this.buttonPrintMappin.Text = "Вывести таблицу переименований";
+            this.buttonPrintMappin.UseVisualStyleBackColor = true;
+            this.buttonPrintMappin.Click += new System.EventHandler(this.buttonPrintMappin_Click);
             // 
             // groupBox2
             // 
@@ -280,8 +312,27 @@
             this.GridVariable.Size = new System.Drawing.Size(427, 191);
             this.GridVariable.TabIndex = 3;
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column1.HeaderText = "Имя до переименования";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 210;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column2.HeaderText = "Имя после переименования";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 210;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkRenameMethod);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.numericLengthVar);
             this.groupBox1.Controls.Add(this.checkRenameVariable);
@@ -294,10 +345,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Выберите параметры";
             // 
+            // checkRenameMethod
+            // 
+            this.checkRenameMethod.AutoSize = true;
+            this.checkRenameMethod.Location = new System.Drawing.Point(6, 80);
+            this.checkRenameMethod.Name = "checkRenameMethod";
+            this.checkRenameMethod.Size = new System.Drawing.Size(160, 17);
+            this.checkRenameMethod.TabIndex = 5;
+            this.checkRenameMethod.Text = "Переименование методов";
+            this.checkRenameMethod.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 81);
+            this.label1.Location = new System.Drawing.Point(3, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 13);
             this.label1.TabIndex = 4;
@@ -305,7 +366,7 @@
             // 
             // numericLengthVar
             // 
-            this.numericLengthVar.Location = new System.Drawing.Point(6, 97);
+            this.numericLengthVar.Location = new System.Drawing.Point(6, 125);
             this.numericLengthVar.Name = "numericLengthVar";
             this.numericLengthVar.Size = new System.Drawing.Size(120, 20);
             this.numericLengthVar.TabIndex = 3;
@@ -328,7 +389,7 @@
             // checkEmptyLine
             // 
             this.checkEmptyLine.AutoSize = true;
-            this.checkEmptyLine.Location = new System.Drawing.Point(6, 134);
+            this.checkEmptyLine.Location = new System.Drawing.Point(6, 151);
             this.checkEmptyLine.Name = "checkEmptyLine";
             this.checkEmptyLine.Size = new System.Drawing.Size(151, 17);
             this.checkEmptyLine.TabIndex = 1;
@@ -430,6 +491,8 @@
             // tabWiew
             // 
             this.tabWiew.BackColor = System.Drawing.SystemColors.Control;
+            this.tabWiew.Controls.Add(this.label3);
+            this.tabWiew.Controls.Add(this.label2);
             this.tabWiew.Controls.Add(this.richTextBox1);
             this.tabWiew.Controls.Add(this.richTextBox2);
             this.tabWiew.Location = new System.Drawing.Point(4, 22);
@@ -463,6 +526,7 @@
             this.button3.Text = "Сохранить";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.сохранитьToolStripMenuItem1_Click);
             // 
             // button4
             // 
@@ -488,34 +552,52 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // buttonPrintMappin
+            // таблицаСоответствийToolStripMenuItem
             // 
-            this.buttonPrintMappin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrintMappin.Location = new System.Drawing.Point(379, 352);
-            this.buttonPrintMappin.Name = "buttonPrintMappin";
-            this.buttonPrintMappin.Size = new System.Drawing.Size(213, 23);
-            this.buttonPrintMappin.TabIndex = 5;
-            this.buttonPrintMappin.Text = "Вывести таблицу переименований";
-            this.buttonPrintMappin.UseVisualStyleBackColor = true;
-            this.buttonPrintMappin.Click += new System.EventHandler(this.buttonPrintMappin_Click);
+            this.таблицаСоответствийToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem,
+            this.загрузитьToolStripMenuItem});
+            this.таблицаСоответствийToolStripMenuItem.Name = "таблицаСоответствийToolStripMenuItem";
+            this.таблицаСоответствийToolStripMenuItem.Size = new System.Drawing.Size(142, 20);
+            this.таблицаСоответствийToolStripMenuItem.Text = "Таблица соответствий";
             // 
-            // Column1
+            // сохранитьToolStripMenuItem
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column1.HeaderText = "Имя до переименования";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 210;
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
-            // Column2
+            // загрузитьToolStripMenuItem
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column2.HeaderText = "Имя после переименования";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 210;
+            this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            // 
+            // сохранитьToolStripMenuItem1
+            // 
+            this.сохранитьToolStripMenuItem1.Name = "сохранитьToolStripMenuItem1";
+            this.сохранитьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.сохранитьToolStripMenuItem1.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьToolStripMenuItem1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(51, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Исходный код";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(455, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Модифицированный код";
             // 
             // MainForm
             // 
@@ -548,6 +630,7 @@
             this.tabComment.ResumeLayout(false);
             this.tabComment.PerformLayout();
             this.tabWiew.ResumeLayout(false);
+            this.tabWiew.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,6 +680,14 @@
         private System.Windows.Forms.Button buttonPrintMappin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.CheckBox checkRenameMethod;
+        private System.Windows.Forms.CheckBox checkCycles;
+        private System.Windows.Forms.ToolStripMenuItem таблицаСоответствийToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 
