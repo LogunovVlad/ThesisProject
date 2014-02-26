@@ -60,6 +60,18 @@ namespace Obfuscator.SourceData.TypeToken.Number
             return checkFlag;
         }
 
+        public static bool checkWhile(string inputText)
+        {
+            bool checkFlag = false;
+            string patternFor = @"while\s*" + Regex.Escape("(") + "(.*)" + Regex.Escape(")");
+            MatchCollection matchFor = NewRegex(inputText, patternFor);
+            if (matchFor.Count > 0)
+            {
+                checkFlag = true;
+            }
+            return checkFlag;
+        }
+
         /// <summary>
         /// Метод определяющий тип данных
         /// </summary>

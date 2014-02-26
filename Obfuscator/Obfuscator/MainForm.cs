@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Obfuscator.SourceData;
 using Obfuscator.SourceData.Table.TableMapping;
+using System.Globalization;
 
 namespace Obfuscator
 {
@@ -18,6 +20,8 @@ namespace Obfuscator
             InitializeComponent();
         }
 
+        Statistics form;
+        CObfuscator obf;
         OpenFile opFile;
         Printer printer;
         TableMapping table;
@@ -33,7 +37,7 @@ namespace Obfuscator
             table = new TableMapping();
             Scanner scanner = new Scanner(opFile.Text);
             scanner.StartScan();
-            CObfuscator obf = new CObfuscator(scanner.GetTokens, table);
+            obf = new CObfuscator(scanner.GetTokens, table);
             if (SingleLineComment.Checked)
             {
                 obf.removeSingleLineComment();
@@ -189,6 +193,23 @@ namespace Obfuscator
             else
                 MessageBox.Show("Отсутствуют записи в таблице!", "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+        }
+
+        private void checkTrueRename_Click(object sender, EventArgs e)
+        {
+            if (checkTrueRename.Checked)
+                groupBox1.Enabled = true;
+            else
+                groupBox1.Enabled = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            /*form = new Statistics();
+            form.Show();   */
+            MessageBox.Show("Курсовой проект на тему:\n\n \"Автоматизированные системы защиты\n" +
+            "исходного кода на основе обфускации.\"\n\nВыполнил:\nстудент группы ИТ-51\nЛогунов Владислав", "О программе",
+            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
     }

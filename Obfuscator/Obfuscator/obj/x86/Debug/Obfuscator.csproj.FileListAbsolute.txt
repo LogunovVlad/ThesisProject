@@ -13,3 +13,10 @@ E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.resourc
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.Properties.Resources.resources
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.csproj.GenerateResource.Cache
 E:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.csprojResolveAssemblyReference.cache
+e:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.Statistics.resources
+e:\ProjectGitHub\Obfuscator\Obfuscator\bin\Debug\en-US\Obfuscator.resources.dll
+e:\ProjectGitHub\Obfuscator\Obfuscator\bin\Debug\ru-RU\Obfuscator.resources.dll
+e:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.en-US.resources
+e:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\Obfuscator.MainForm.ru-RU.resources
+e:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\en-US\Obfuscator.resources.dll
+e:\ProjectGitHub\Obfuscator\Obfuscator\obj\x86\Debug\ru-RU\Obfuscator.resources.dll

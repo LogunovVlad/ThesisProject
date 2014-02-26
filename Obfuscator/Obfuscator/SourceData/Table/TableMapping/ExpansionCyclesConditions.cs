@@ -42,12 +42,53 @@ namespace Obfuscator.SourceData.Table.TableMapping
             bool checkFlag = false;
             for (int i = 0; i < token.Count; i++)
             {
-                if (token.ElementAt(i).GetType == "For")
+                if (token.ElementAt(i).GetType == "For" || token.ElementAt(i).GetType == "while")
                 {
                     checkFlag = true;
                 }
             }
             return checkFlag;
+        }
+
+        private void ExtensionConditionWhile(string sourceText, int index)
+        {
+            string replace = null;            
+            string patternM = "(<|>|==)";
+            string patternSk = "\\(";
+            string patternSkz = "\\)";  
+            Regex regM = new Regex(patternM);
+            Regex regSk = new Regex(patternSk);
+            Regex regSkz = new Regex(patternSkz);            
+            
+            MatchCollection match = regSk.Matches(sourceText);
+         
+            if (match.Count > 0)
+            {             
+                string[] massCond = regSkz.Split(sourceText);
+                string[] source = regSk.Split(massCond[0]);
+                string[] lit = regM.Split(source[1]);
+                string sourceLit = lit[2].Trim();
+                //проверка на число
+                int value;
+                try
+                {
+                    Regex patternNumb = new Regex(@"\d+");
+                    MatchCollection matchNumb = patternNumb.Matches(sourceLit);
+                    if (matchNumb.Count > 0)
+                    {
+                        int num = rand.Next(0, 1000);
+                        GenerateNewFunction(sourceLit, num);
+                        replace = source[0] + "(" + lit[0] + lit[1] + "name" + sourceLit + num + "()-65536*6)";
+                        //плюс одна строчка т.к. добавляем определение функции
+                        token.ElementAt(index).SetValue = replace;
+                        GenerateDefinition("\nint name" + sourceLit + num + "();\n");
+                    }
+                }
+                catch (Exception e)
+                {
+                    
+                }
+            }
         }
 
         /// <summary>
@@ -58,7 +99,7 @@ namespace Obfuscator.SourceData.Table.TableMapping
         {
             string replace = null;
             string pattern = ";";
-            string patternM = "(<|>)";
+            string patternM = "(<|>|==)";
             string patternB = ">";
             Regex regDot = new Regex(pattern);
             Regex regM = new Regex(patternM);
@@ -88,7 +129,7 @@ namespace Obfuscator.SourceData.Table.TableMapping
                 }
                 catch (Exception e)
                 {
-                    /*Обработка*/                    
+                    /*Обработка*/                   
                 }                                
             }              
         }
@@ -121,6 +162,12 @@ namespace Obfuscator.SourceData.Table.TableMapping
                 if (token.ElementAt(i).GetType == "For")
                 {
                     ExtensionCondition(token.ElementAt(i).GetValue, i);
+                    continue;
+                }
+                if (token.ElementAt(i).GetType == "While")
+                {
+                    ExtensionConditionWhile(token.ElementAt(i).GetValue, i);
+                    continue;
                 }
             }
             DefinitionFunction();

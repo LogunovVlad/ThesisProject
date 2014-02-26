@@ -25,7 +25,7 @@ namespace Obfuscator.SourceData
         enum TokenTypes
         {
             Library, Identifier, Keyword, SingleQuotedLiteral, DoubleQuotedLiteral, NumericValue,
-            SingleLineComment, MultiLineComment, Delimiter, NotCode, Const, Other, EmptyLine, Function, Main, For
+            SingleLineComment, MultiLineComment, Delimiter, NotCode, Const, Other, EmptyLine, Function, Main, For, While
         };
 
         
@@ -143,6 +143,13 @@ namespace Obfuscator.SourceData
                 {
                     TokenTypes For = TokenTypes.For;
                     AddTokens(result[i], For);
+                    continue;
+                }
+
+                if (KeyWordChecker.checkWhile(result[i]))
+                {
+                    TokenTypes While = TokenTypes.While;
+                    AddTokens(result[i], While);
                     continue;
                 }
 
